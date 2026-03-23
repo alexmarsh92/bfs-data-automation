@@ -214,10 +214,9 @@ function syncBFS(releaseDate) {
     ss.setActiveSheet(ss.getSheetByName(IMP_SHEET));
     ss.moveActiveSheet(1);
 
-    // 6. Write two-line audit stamp in both sheets
+    // 6. Write audit stamp to BFS_Raw only
     var pullTime = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'yyyy-MM-dd HH:mm z');
     var stamp    = 'Census release date: ' + releaseDate + '  |  Data pulled: ' + pullTime;
-    stampSheet(ss, IMP_SHEET, stamp);
     stampSheet(ss, RAW_SHEET, stamp);
 
     var elapsed = ((new Date() - startTime) / 1000).toFixed(1);
